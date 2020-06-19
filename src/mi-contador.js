@@ -15,6 +15,14 @@ export class MiContador extends LitElement {
 
   render() {
     return html`
+      <style>
+        button {
+          border: solid 1px purple;
+          width: 100px;
+          border-radius: 5px;
+        }
+      </style>
+
       <div>
         <p>Llevas ${this.counter} clicks! :)</p>
 
