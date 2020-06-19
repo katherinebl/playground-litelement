@@ -6,11 +6,43 @@
     <title>Lit-Element</title>
   </head>
   <body>
-    <h1>Practicando con lit-element</h1>
+    <!-- <h1>Practicando con lit-element</h1>
 
     <hola-mundo quien="Kath"></hola-mundo>
 
-    <mi-contador></mi-contador>
+    <mi-contador></mi-contador> -->
+
+    <section style="width: 50%; margin: 20% auto 0;">
+      <div
+        style="
+          margin-bottom: 20px;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+        "
+      >
+        HOW MUCH DO YOU LOVE IT? :)
+      </div>
+      <emoji-slider
+        id="rangeSlider"
+        emoji="💖"
+        class="rangeSlider"
+      ></emoji-slider>
+    </section>
+
+    <script>
+      const rangeSlider = document.querySelector("#rangeSlider");
+      rangeSlider.addEventListener("change", () => {
+        const v = rangeSlider.value;
+        if (v < 0.25) {
+          rangeSlider.emoji = "💔";
+        } else if (v < 0.5) {
+          rangeSlider.emoji = "💜";
+        } else if (v < 0.75) {
+          rangeSlider.emoji = "💗";
+        } else {
+          rangeSlider.emoji = "💖";
+        }
+      });
+    </script>
 
     <!-- <feedback-element msg="Holaaaaaa :)"></feedback-element> -->
 
