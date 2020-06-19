@@ -36,5 +36,13 @@ export class FeedbackElement extends LitElement {
       <div class="${this.opened ? "opened" : ""}">${this.msg}</div>
     `;
   }
+
+  // Métodos
+  open(mensaje) {
+    this.msg = mensaje;
+    this.opened = true;
+
+    setTimeout(() => (this.opened = false), 3000);
+  }
 }
 customElements.define("feedback-element", FeedbackElement);
