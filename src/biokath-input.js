@@ -5,6 +5,7 @@ export class BiokathInput extends LitElement {
     return {
       placeholder: { type: String },
       disabled: { type: Boolean },
+      id: { type: String },
     };
   }
 
@@ -32,10 +33,20 @@ export class BiokathInput extends LitElement {
     return html`
       <input
         type="text"
+        id="textField"
         placeholder=${this.placeholder}
         ?disabled=${this.disabled}
+        @keypress=${this.lookForEnter}
       />
     `;
+  }
+
+  //Función handler
+  lookForEnter(e) {
+    let keycode = e.keycode ? e.keycode : e.which; //para que funcione en varios navegadores
+    if (keycode === 13) {
+      console.log("has pulsado enter!");
+    }
   }
 }
 customElements.define("biokath-input", BiokathInput);
