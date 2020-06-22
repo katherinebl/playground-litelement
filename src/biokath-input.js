@@ -7,12 +7,14 @@ export class BiokathInput extends LitElement {
       disabled: { type: Boolean },
       id: { type: String },
       value: { type: String },
+      label: { type: String },
     };
   }
 
   static get styles() {
     return css`
       input {
+        display: block;
         border: 1px solid orange;
         border-radius: 10px;
         padding: 5px 20px;
@@ -29,19 +31,23 @@ export class BiokathInput extends LitElement {
     super();
     (this.disabled = false),
       (this.placeholder = ""),
-      (this.value = "valor inicial");
+      (this.value = "valor inicial"),
+      (this.label = "");
   }
 
   render() {
     return html`
-      <input
-        type="text"
-        id="textField"
-        placeholder=${this.placeholder}
-        ?disabled=${this.disabled}
-        @keypress=${this.lookForEnter}
-        value=${this.value}
-      />
+      <div>
+        ${this.label ? html`<label for="textField">${this.label}</label>` : ""}
+        <input
+          type="text"
+          id="textField"
+          placeholder=${this.placeholder}
+          ?disabled=${this.disabled}
+          @keypress=${this.lookForEnter}
+          value=${this.value}
+        />
+      </div>
     `;
   }
 
