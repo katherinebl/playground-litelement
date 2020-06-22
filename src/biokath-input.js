@@ -6,6 +6,7 @@ export class BiokathInput extends LitElement {
       placeholder: { type: String },
       disabled: { type: Boolean },
       id: { type: String },
+      value: { type: String },
     };
   }
 
@@ -26,7 +27,9 @@ export class BiokathInput extends LitElement {
   //Definir aquí el valor inicial de las props para que no sean undefined
   constructor() {
     super();
-    (this.disabled = false), (this.placeholder = "");
+    (this.disabled = false),
+      (this.placeholder = ""),
+      (this.value = "valor inicial");
   }
 
   render() {
@@ -37,6 +40,7 @@ export class BiokathInput extends LitElement {
         placeholder=${this.placeholder}
         ?disabled=${this.disabled}
         @keypress=${this.lookForEnter}
+        value=${this.value}
       />
     `;
   }
